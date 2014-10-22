@@ -16,9 +16,9 @@ public class FirstTest {
     {
         int x = 1;
         int y = 2;
-        int z = 3;
+        int z = 6;
 
-        Assert.assertTrue(Task1.plus(x,y) == z);
+        Assert.assertEquals(Task1.plus(x,y), z);
 
     }
 
