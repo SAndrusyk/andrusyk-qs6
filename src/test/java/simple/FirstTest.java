@@ -1,5 +1,6 @@
 package simple;
 
+import Task1.Task1;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -13,8 +14,11 @@ public class FirstTest {
 
     public void firstTest()
     {
-        System.out.print("new print");
-        Assert.assertTrue(true);
+        int x = 1;
+        int y = 2;
+        int z = 3;
+
+        Assert.assertTrue(Task1.plus(x,y) == z);
 
     }
 
