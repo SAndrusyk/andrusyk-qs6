@@ -3,9 +3,18 @@
 <suite name="firstTestSuite" verbose="1" >
     <parameter name="expectedCount" value="2"/>
 
-    <test name="SmokeTest">
+    <test name="SmokeTest" >
         <classes>
             <class name="simple.FirstTest" />
         </classes>
     </test>
+
+
+    <test name="HW3Test">
+        <classes>
+            <class name="HW3_Test.HW3_Test"/>
+        </classes>
+
+    </test>
+
 </suite>

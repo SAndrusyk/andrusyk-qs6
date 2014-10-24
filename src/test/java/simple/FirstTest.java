@@ -16,7 +16,7 @@ public class FirstTest {
     {
         int x = 1;
         int y = 2;
-        int z = 6;
+        int z = 3;
 
         Assert.assertEquals(Task1.plus(x,y), z);
 
