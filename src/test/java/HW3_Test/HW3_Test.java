@@ -3,6 +3,7 @@ package HW3_Test;
 import HW3.HW3;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 /**
@@ -10,6 +11,19 @@ import org.testng.annotations.Test;
  */
 
 public class HW3_Test {
+
+    @Test
+    @Parameters({"emailForSmokeTest"})
+    public void TestHW3Smoke(String eMail)
+    {
+        Assert.assertEquals(HW3.emailValidation(eMail), true, "Error! " + eMail);
+    }
+
+    @Test (dataProvider = "emailList")
+    public void TestHW3(String eMail, boolean result)
+    {
+        Assert.assertEquals(HW3.emailValidation(eMail), result, "Error! " + eMail);
+    }
 
     @DataProvider(name = "emailList")
     public Object[][] createData1() {
@@ -26,15 +40,5 @@ public class HW3_Test {
                 {"lkjh@kjhlj@fog.ru", false}
         };
     }
-
-
-    @Test (dataProvider = "emailList")
-    public void TestHW3(String eMail, boolean result)
-    {
-        Assert.assertEquals(HW3.emailValidation(eMail), result, "Error! " + eMail);
-    }
-
-
-    
 
 }
