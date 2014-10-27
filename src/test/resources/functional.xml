@@ -1,7 +1,6 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="firstTestSuite" verbose="1" >
-    <parameter name="expectedCount" value="2"/>
+<suite name="functionalTestSuite" verbose="1" >
 
     <test name="SmokeTest" >
         <classes>
