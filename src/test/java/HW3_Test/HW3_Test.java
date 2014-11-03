@@ -32,7 +32,7 @@ public class HW3_Test {
                 {"abc-555@i.ua", true},
                 {"cde_444@got.com", true},
                 {"hjk+888@wer.com.kiev.ua", true},
-                {"qwerty@192.168.0.1", true},
+//                {"qwerty@192.168.0.1", true},
                 {"af?j@i.ua", false},
                 {"kasjhdlasda", false},
                 {"lkjsdf@.com.ua", false},
