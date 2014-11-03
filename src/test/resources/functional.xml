@@ -9,13 +9,6 @@
     </test>
 
 
-    <test name="HW3Test">
-        <parameter name="emailForSmokeTest" value="Santok_asd@gmail.com" />
 
-        <classes>
-            <class name="HW3_Test.HW3_Test"/>
-        </classes>
-
-    </test>
 
 </suite>
