@@ -2,11 +2,18 @@
 
 <suite name="functionalTestSuite" verbose="1" >
 
+    <test name="SmokeTest" >
+        <classes>
+            <class name="simple.FirstTest" />
+        </classes>
+    </test>
+
+
     <test name="HW3Test">
         <parameter name="emailForSmokeTest" value="Santok_asd@gmail.com" />
 
         <classes>
-            <class name="HomeTask5.HotlineRegistration"/>
+            <class name="HW3_Test.HW3_Test"/>
         </classes>
 
     </test>
