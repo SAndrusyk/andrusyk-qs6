@@ -1,21 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="functionalTestSuite" verbose="1" >
+<suite name="functionalTestSuite">
 
-    <test name="SmokeTest" >
+    <test name="HotlineRegistrationTest" >
         <classes>
-            <class name="simple.FirstTest" />
+            <class name="HomeTask5.HotlineRegistration" />
         </classes>
     </test>
 
-
-    <test name="HW3Test">
-        <parameter name="emailForSmokeTest" value="Santok_asd@gmail.com" />
-
-        <classes>
-            <class name="HW3_Test.HW3_Test"/>
-        </classes>
-
-    </test>
 
 </suite>
