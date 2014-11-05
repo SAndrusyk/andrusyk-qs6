@@ -3,13 +3,13 @@ package HomeTask5;
 import Pages.HomePage;
 import Pages.RegisterPage;
 import Pages.WelcomePage;
+import actors.HW5User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -19,29 +19,30 @@ import org.testng.annotations.Test;
 
 public class HotlineRegistration {
 
-//    @DataProvider(name="testData4Reg")
-//    public Object[][] testData() {
-//        String timerStr = Long.toString(System.currentTimeMillis());
-//        return new Object[][] {
-//                {timerStr, true},
-////                {timerStr, false},
-//
-//        };
-//
-//    }
+    public HW5User user = new HW5User();
+
+    @DataProvider(name="testData4Reg")
+    public Object[][] testData() {
+        return new Object[][] {
+                {user, true},
+                {user, false},
+
+        };
+
+    }
 
 
 
     public static FirefoxDriver driver;
 
-    @BeforeSuite
+    @BeforeMethod
     public void envPrep()
     {
         driver = new FirefoxDriver();
     }
 
-    @Test //(dataProvider = "testData4Reg")
-    public void registerOnHotline(/*String currentTimer, Boolean NegativeTestFlag*/)
+    @Test (dataProvider = "testData4Reg")
+    public void registerOnHotline(HW5User user,  Boolean PositiveTestFlag)
     {
         driver.get("http://hotline.ua");
         HomePage homePage = new HomePage(driver);
@@ -51,19 +52,23 @@ public class HotlineRegistration {
 
         RegisterPage registerPage = new RegisterPage(driver);
 
-        registerPage.fillUserData();
+        registerPage.fillUserData(user);
         registerPage.register();
 
-        WelcomePage welcomePage = new WelcomePage(driver);
+        if (PositiveTestFlag) {
+            WelcomePage welcomePage = new WelcomePage(driver);
+            Assert.assertTrue(welcomePage.isOnPage(), "Register fail");
+        } else {
+            Assert.assertTrue(driver.findElement(By.className("errors")).isDisplayed(), "Expected error not displayed");
+        }
 
-        Assert.assertTrue(welcomePage.isOnPage(), "Register fail");
 
 
 
     }
 
 
-    @AfterSuite
+    @AfterMethod
     public void envClean()
     {
         if (driver != null) {

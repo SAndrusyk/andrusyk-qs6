@@ -14,8 +14,8 @@ public class RegisterPage {
     public static final String nickFieldNameSelector = "nick";
 
 
-    public static final String password1FieldNameSelector = "passw1";
-    public static final String password2FieldNameSelector = "passw2";
+    public static final String password1FieldIdSelector = "passw1";
+    public static final String password2FieldIdSelector = "passw2";
     public static final String regButtonClassNameSelector = "blue-button";
 
     //End of constants for RegisterPage objects
@@ -27,12 +27,12 @@ public class RegisterPage {
         this.driver = driver;
     }
 
-    public void fillUserData()
+    public void fillUserData(HW5User user)
     {
-        driver.findElement(By.name(emailFieldNameSelector)).sendKeys(HW5User.email);
-        driver.findElement(By.name(nickFieldNameSelector)).sendKeys(HW5User.nickname);
-        driver.findElement(By.id(password1FieldNameSelector)).sendKeys(HW5User.passwd);
-        driver.findElement(By.id(password2FieldNameSelector)).sendKeys(HW5User.passwd);
+        driver.findElement(By.name(emailFieldNameSelector)).sendKeys(user.email);
+        driver.findElement(By.name(nickFieldNameSelector)).sendKeys(user.nickname);
+        driver.findElement(By.id(password1FieldIdSelector)).sendKeys(user.passwd);
+        driver.findElement(By.id(password2FieldIdSelector)).sendKeys(user.passwd);
     }
 
     public void register()
