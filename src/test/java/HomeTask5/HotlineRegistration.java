@@ -59,7 +59,7 @@ public class HotlineRegistration {
             WelcomePage welcomePage = new WelcomePage(driver);
             Assert.assertTrue(welcomePage.isOnPage(), "Register fail");
         } else {
-            Assert.assertTrue(driver.findElement(By.className("errors")).isDisplayed(), "Expected error not displayed");
+            Assert.assertTrue(homePage.negConditioon(), "Expected error not displayed");
         }
 
 

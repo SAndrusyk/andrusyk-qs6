@@ -11,6 +11,7 @@ public class HomePage {
     public static final String popUpCloseButtonCSSSelector = "html body.fon div#lightbox-form.lightbox-form div.visa-pup span.close.hand.close-lightbox";
     public static final String selectCityCloseButtonCssSelector = "html body.fon div.bg_white.fix div.conteiner.fix div.header-box div.rgn-box.sbj.popup-box.region-doubtfulness-popup a.blue-button.success";
     public static final String lonigLinkCssSelector = "html body.fon div.bg_white.fix div.conteiner.fix div.header-box div.login.in a.reg";
+    public static final String negConditionClassSelector = "errors";
     //End of constants for HomePage objects
 
 
@@ -34,6 +35,11 @@ public class HomePage {
     public void register()
     {
         driver.findElement(By.cssSelector(lonigLinkCssSelector)).click();
+    }
+
+    public Boolean negConditioon()
+    {
+        return driver.findElement(By.className(negConditionClassSelector)).isDisplayed();
     }
 
 
