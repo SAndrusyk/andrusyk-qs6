@@ -14,8 +14,11 @@ public class HomePage {
     private static final By popUpCloseButtonSelector = By.className("close");
     private static final By selectCityCloseSelector = By.className("blue-button");
     private static final By loginLinkSelector = By.xpath("//a[@href='/user/register/']");
-
     private static final By negConditionSelector =By.xpath("//*[.='Извините, но такой e-mail уже занят']");
+
+    private static final By searchFieldSelector = By.id("searchbox");
+    private static final By searchButtonSelector = By.id("doSearch");
+
     //End of constants for HomePage objects
 
 
@@ -54,8 +57,8 @@ public class HomePage {
 
     public void findElement(String elementName)
     {
-        driver.findElement(By.id("searchbox")).sendKeys(elementName);
-        driver.findElement(By.id("doSearch")).click();
+        driver.findElement(searchFieldSelector).sendKeys(elementName);
+        driver.findElement(searchButtonSelector).click();
         return;
     }
 

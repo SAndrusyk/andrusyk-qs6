@@ -8,7 +8,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-
 /**
  * Created by HomeUser on 01.11.2014.
  */
