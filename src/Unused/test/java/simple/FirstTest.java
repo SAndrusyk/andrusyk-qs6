@@ -1,6 +1,6 @@
-package simple;
+package _Old.simple;
 
-import Task1.Task1;
+import _Old.Task1.Task1;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

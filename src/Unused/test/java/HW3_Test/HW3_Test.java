@@ -1,6 +1,6 @@
-package HW3_Test;
+package _Old.HW3_Test;
 
-import HW3.HW3;
+import _Old.HW3.HW3;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
