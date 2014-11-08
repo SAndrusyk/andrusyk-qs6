@@ -13,34 +13,20 @@ import org.testng.annotations.*;
  * Created by HomeUser on 01.11.2014.
  */
 
-
-public class HotlineRegistration extends functional {
-
-
-    @Test (dataProvider = "testData4Reg")
-    public void registerOnHotline(HW5User user,  Boolean PositiveTestFlag)
+public class HotlineRegistration extends functional
+{
+    @Test
+    public void registerOnHotline()
     {
-        driver.get("http://hotline.ua");
+        driver.get(siteUrl);
         HomePage homePage = new HomePage(driver);
         homePage.closeADPopUp();
         homePage.selectCity();
         homePage.register();
-
         RegisterPage registerPage = new RegisterPage(driver);
-
         registerPage.fillUserData(user);
         registerPage.register();
-
-        if (PositiveTestFlag) {
-            WelcomePage welcomePage = new WelcomePage(driver);
-            Assert.assertTrue(welcomePage.isOnPage(), "Register fail");
-        } else {
-            Assert.assertTrue(homePage.negConditioon(), "Expected error not displayed");
-        }
-
-
-
-
+        WelcomePage welcomePage = new WelcomePage(driver);
+        Assert.assertTrue(welcomePage.isOnPage(), "Register fail");
     }
-
 }

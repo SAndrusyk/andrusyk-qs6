@@ -10,13 +10,11 @@ import org.openqa.selenium.WebDriver;
 public class RegisterPage {
 
     //Constants for RegisterPage objects
-    public static final String emailFieldNameSelector = "email";
-    public static final String nickFieldNameSelector = "nick";
-
-
-    public static final String password1FieldIdSelector = "passw1";
-    public static final String password2FieldIdSelector = "passw2";
-    public static final String regButtonClassNameSelector = "blue-button";
+    public static final By emailFieldSelector = By.name("email");
+    public static final By nickFieldSelector = By.name("nick");
+    public static final By password1FieldSelector = By.id("passw1");
+    public static final By password2FieldSelector = By.id("passw2");
+    public static final By regButtonSelector = By.className("blue-button");
 
     //End of constants for RegisterPage objects
 
@@ -29,15 +27,15 @@ public class RegisterPage {
 
     public void fillUserData(HW5User user)
     {
-        driver.findElement(By.name(emailFieldNameSelector)).sendKeys(user.email);
-        driver.findElement(By.name(nickFieldNameSelector)).sendKeys(user.nickname);
-        driver.findElement(By.id(password1FieldIdSelector)).sendKeys(user.passwd);
-        driver.findElement(By.id(password2FieldIdSelector)).sendKeys(user.passwd);
+        driver.findElement(emailFieldSelector).sendKeys(user.email);
+        driver.findElement(nickFieldSelector).sendKeys(user.nickname);
+        driver.findElement(password1FieldSelector).sendKeys(user.passwd);
+        driver.findElement(password2FieldSelector).sendKeys(user.passwd);
     }
 
     public void register()
     {
-        driver.findElement(By.className(regButtonClassNameSelector)).click();
+        driver.findElement(regButtonSelector).click();
     }
 
 

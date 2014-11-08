@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 public class WelcomePage {
 
     //Constants for WelcomePage objects
-    public static final String profileNameFieldSelector = "first_name";
+    private static final By profileNameFieldSelector = By.name("first_name");
     //End of constants for WelcomePage objects
 
     private static WebDriver driver;
@@ -21,7 +21,7 @@ public class WelcomePage {
 
     public Boolean isOnPage()
     {
-        return driver.findElement(By.name(profileNameFieldSelector)).isDisplayed();
+        return driver.findElement(profileNameFieldSelector).isDisplayed();
     }
 
 

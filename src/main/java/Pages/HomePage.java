@@ -11,10 +11,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class HomePage {
 
     //Constants for HomePage objects
-    private static final String popUpCloseButtonCSSSelector = "html body.fon div#lightbox-form.lightbox-form div.visa-pup span.close.hand.close-lightbox";
-    private static final String selectCityCloseButtonCssSelector = "html body.fon div.bg_white.fix div.conteiner.fix div.header-box div.rgn-box.sbj.popup-box.region-doubtfulness-popup a.blue-button.success";
-    private static final String lonigLinkCssSelector = "html body.fon div.bg_white.fix div.conteiner.fix div.header-box div.login.in a.reg";
-    private static final String negConditionClassSelector = "errors";
+    private static final By popUpCloseButtonSelector = By.className("close");
+    private static final By selectCityCloseSelector = By.className("blue-button");
+    private static final By loginLinkSelector = By.xpath("//a[@href='/user/register/']");
+
+    private static final By negConditionSelector =By.xpath("//*[.='Извините, но такой e-mail уже занят']");
     //End of constants for HomePage objects
 
 
@@ -28,27 +29,27 @@ public class HomePage {
     public void closeADPopUp()
     {
         WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(popUpCloseButtonCSSSelector)));
-        driver.findElement(By.cssSelector(popUpCloseButtonCSSSelector)).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(popUpCloseButtonSelector));
+        if (driver.findElement(popUpCloseButtonSelector).isDisplayed()) {driver.findElement(popUpCloseButtonSelector).click();}
     }
 
     public void selectCity()
     {
         WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(selectCityCloseButtonCssSelector)));
-        driver.findElement(By.cssSelector(selectCityCloseButtonCssSelector)).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(selectCityCloseSelector));
+        if (driver.findElement(selectCityCloseSelector).isDisplayed()) {driver.findElement(selectCityCloseSelector).click();}
     }
 
     public void register()
     {
         WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(lonigLinkCssSelector)));
-        driver.findElement(By.cssSelector(lonigLinkCssSelector)).click();
+        wait.until(ExpectedConditions.presenceOfElementLocated(loginLinkSelector));
+        if (driver.findElement(loginLinkSelector).isDisplayed()) {driver.findElement(loginLinkSelector).click();}
     }
 
     public Boolean negConditioon()
     {
-        return driver.findElement(By.className(negConditionClassSelector)).isDisplayed();
+        return driver.findElement(negConditionSelector).isDisplayed();
     }
 
     public void findElement(String elementName)

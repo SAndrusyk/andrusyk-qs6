@@ -8,11 +8,11 @@
         </classes>
     </test>
 
-
-    <test name="FindProductTest">
+    <test name="HotlineRegistrationTestNegative" >
         <classes>
-            <class name="functional.FindProductTest"/>
+            <class name="functional.HotlineRegNeg" />
         </classes>
     </test>
+
 
 </suite>

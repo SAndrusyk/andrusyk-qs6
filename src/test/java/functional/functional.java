@@ -13,20 +13,23 @@ import org.testng.annotations.*;
  */
 public class functional {
 
+    public String siteUrl = "http://hotline.ua"; //start URL
+    public static HW5User user = new HW5User();    // generating user data
 
 
-    @DataProvider(name="testData4Reg")
-    public Object[][] testData() {
-        return new Object[][] {
-                {user, true},
-                {user, false},
-
-        };
-
-    }
 
     public static FirefoxDriver driver;
-    private HW5User user = new HW5User();
+
+//    @DataProvider(name="testData4Reg")
+//    public Object[][] testData() {
+//        return new Object[][] {
+//                {user, true},
+//                {user, false},
+//
+//        };
+//
+//    }
+
 
     @BeforeSuite
     public void envPrep()

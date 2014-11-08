@@ -22,6 +22,7 @@ public class HW5User
         this.email = "asd"+ Long.toString(System.currentTimeMillis()) +"@i.ua";
         this.nickname = "asd";
         this.passwd = "qwerty";
+        System.out.println(this.email);
     }
 
     //End of constants for User objects
