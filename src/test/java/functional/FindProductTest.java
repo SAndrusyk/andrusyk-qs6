@@ -14,31 +14,18 @@ import org.testng.annotations.*;
  */
 public class FindProductTest extends functional {
 
-    public static String textToFind = "ASUS";
+    public static final String textToFind = "ASUS";
 
     @Test
     public void FindProduct() throws InterruptedException {
-
-        driver.get("http://hotline.ua");
+        driver.get(siteUrl);
         HomePage homePage = new HomePage(driver);
         homePage.closeADPopUp();
         homePage.selectCity();
-
         homePage.findElement(textToFind);
-
         GoodsPage goodsPage = new GoodsPage(driver);
-
-//        Assert.assertTrue(goodsPage.isOnPage(textToFind));
-
-
         Thread.sleep(5000);
-
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'" + textToFind + "')]")));
-
-        Assert.assertTrue(driver.findElement(By.xpath("//a[contains(text(),'" + textToFind + "')]")).isDisplayed());
-
-
+        Assert.assertTrue(goodsPage.isOnPage(textToFind));
     }
 
 }

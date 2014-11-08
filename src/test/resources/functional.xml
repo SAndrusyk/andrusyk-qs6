@@ -14,5 +14,10 @@
         </classes>
     </test>
 
+    <test name="FindProductTest">
+        <classes>
+            <class name="functional.FindProductTest" />
+        </classes>
+    </test>
 
 </suite>

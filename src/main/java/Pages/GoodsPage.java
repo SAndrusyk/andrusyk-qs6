@@ -18,13 +18,12 @@ public class GoodsPage {
         this.driver = driver;
     }
 
-    public Boolean isOnPage(String text)
+    public Boolean isOnPage(String textToFind)
     {
-//        driver.findElement(By.xpath("//a[conteins(text(),"+ text +")]"));
         WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[conteins(text()," + text + ")]")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'" + textToFind + "')]")));
 
-        return true;
+        return driver.findElement(By.xpath("//a[contains(text(),'" + textToFind + "')]")).isDisplayed();
     }
 
 
