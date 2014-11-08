@@ -3,6 +3,8 @@ package Pages;
 import actors.HW5User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * Created by HomeUser on 01.11.2014.
@@ -27,6 +29,10 @@ public class RegisterPage {
 
     public void fillUserData(HW5User user)
     {
+
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.presenceOfElementLocated(emailFieldSelector));
+
         driver.findElement(emailFieldSelector).sendKeys(user.email);
         driver.findElement(nickFieldSelector).sendKeys(user.nickname);
         driver.findElement(password1FieldSelector).sendKeys(user.passwd);
