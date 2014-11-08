@@ -14,7 +14,7 @@ public class HomePage {
     private static final By popUpCloseButtonSelector = By.className("close");
     private static final By selectCityCloseSelector = By.className("blue-button");
     private static final By loginLinkSelector = By.xpath("//a[@href='/user/register/']");
-    private static final By negConditionSelector =By.xpath("//*[.='Извините, но такой e-mail уже занят']");
+    private static final By negConditionSelector =By.xpath("//*[contains(text(),'e-mail')]");
 
     private static final By searchFieldSelector = By.id("searchbox");
     private static final By searchButtonSelector = By.id("doSearch");
