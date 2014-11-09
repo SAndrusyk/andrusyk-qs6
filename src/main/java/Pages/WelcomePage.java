@@ -24,7 +24,7 @@ public class WelcomePage {
     public Boolean isOnPage()
     {
         WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(profileNameFieldSelector));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(profileNameFieldSelector));
 
         return driver.findElement(profileNameFieldSelector).isDisplayed();
     }

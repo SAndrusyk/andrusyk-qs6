@@ -2,19 +2,15 @@ package functional;
 
 import Pages.GoodsPage;
 import Pages.HomePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.Test;
 
 /**
  * Created by bionic on 11/5/14.
  */
-public class FindProductTest extends functional {
+public class FindProductTestNeg extends functional {
 
-    public static final String textToFind = "ASUS";
+    public static final String textToFind = "dfhdfhdfgdh";
 
     @Test
     public void FindProduct() throws InterruptedException {
@@ -24,7 +20,7 @@ public class FindProductTest extends functional {
         homePage.selectCity();
         homePage.findElement(textToFind);
         GoodsPage goodsPage = new GoodsPage(driver);
-        Assert.assertTrue(goodsPage.isOnPage(textToFind));
+        Assert.assertFalse(goodsPage.isOnPage(textToFind));
     }
 
 }

@@ -12,7 +12,6 @@ import org.testng.annotations.ExpectedExceptions;
 public class GoodsPage {
 
     private static WebDriver driver;
-
     public GoodsPage(WebDriver driver)
     {
         this.driver = driver;
@@ -20,12 +19,19 @@ public class GoodsPage {
 
     public Boolean isOnPage(String textToFind)
     {
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(),'" + textToFind + "')]")));
-
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'" + textToFind + "')]")));
+        } catch (Exception e) {return false;}
         return driver.findElement(By.xpath("//a[contains(text(),'" + textToFind + "')]")).isDisplayed();
     }
 
-
-
+    public Integer amountGoodsOnPage(String textToFind)
+    {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'" + textToFind + "')]")));
+        } catch (Exception e) {return 0;}
+        return driver.findElements(By.xpath("//a[contains(text(),'" + textToFind + "')]")).size();
+    }
 }

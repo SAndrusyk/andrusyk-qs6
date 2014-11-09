@@ -31,7 +31,7 @@ public class RegisterPage {
     {
 
         WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(emailFieldSelector));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(emailFieldSelector));
 
         driver.findElement(emailFieldSelector).sendKeys(user.email);
         driver.findElement(nickFieldSelector).sendKeys(user.nickname);

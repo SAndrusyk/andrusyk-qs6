@@ -7,6 +7,7 @@ import actors.HW5User;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import utils.Log4Test;
 
 /**
  * Created by HomeUser on 01.11.2014.

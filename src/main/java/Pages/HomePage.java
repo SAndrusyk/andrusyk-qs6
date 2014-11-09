@@ -1,9 +1,11 @@
 package Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Log4Test;
 
 /**
  * Created by HomeUser on 01.11.2014.
@@ -31,28 +33,38 @@ public class HomePage {
 
     public void closeADPopUp()
     {
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(popUpCloseButtonSelector));
-        if (driver.findElement(popUpCloseButtonSelector).isDisplayed()) {driver.findElement(popUpCloseButtonSelector).click();}
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 3);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(popUpCloseButtonSelector));
+            driver.findElement(popUpCloseButtonSelector).click();
+        } catch (TimeoutException e){
+            Log4Test.info("PopUp banner not found");
+        }
     }
 
     public void selectCity()
     {
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(selectCityCloseSelector));
-        if (driver.findElement(selectCityCloseSelector).isDisplayed()) {driver.findElement(selectCityCloseSelector).click();}
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 3);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(selectCityCloseSelector));
+            driver.findElement(selectCityCloseSelector).click();
+        } catch (TimeoutException e) {
+            Log4Test.info("City selection banner not found");
+        }
     }
 
     public void register()
     {
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.presenceOfElementLocated(loginLinkSelector));
-        if (driver.findElement(loginLinkSelector).isDisplayed()) {driver.findElement(loginLinkSelector).click();}
+        WebDriverWait wait = new WebDriverWait(driver,3);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(loginLinkSelector));
+        driver.findElement(loginLinkSelector).click();
     }
 
     public Boolean negConditioon()
     {
-        return driver.findElement(negConditionSelector).isDisplayed();
+        WebDriverWait wait = new WebDriverWait(driver,3);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(negConditionSelector));
+        return true;
     }
 
     public void findElement(String elementName)

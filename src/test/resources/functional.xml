@@ -20,4 +20,16 @@
         </classes>
     </test>
 
+    <test name="FindProductTestNeg">
+        <classes>
+            <class name="functional.FindProductTestNeg"/>
+        </classes>
+    </test>
+
+    <test name="FindProductCompareTest">
+        <classes>
+            <class name="functional.FindProductCompareTest"/>
+        </classes>
+    </test>
+
 </suite>
