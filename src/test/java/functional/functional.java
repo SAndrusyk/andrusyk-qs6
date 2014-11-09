@@ -1,12 +1,9 @@
 package functional;
 
-import Pages.HomePage;
-import Pages.RegisterPage;
-import Pages.WelcomePage;
 import actors.HW5User;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
 import org.testng.annotations.*;
+import utils.Log4Test;
 
 /**
  * Created by bionic on 11/5/14.
@@ -21,12 +18,14 @@ public class functional {
     @BeforeSuite
     public void envPrep()
     {
+        Log4Test.info("Starting FirefoxDriver");
         driver = new FirefoxDriver();
     }
 
     @AfterSuite
     public void envClean()
     {
+        Log4Test.info("Closing FirefoxDriver");
         if (driver != null) {
             driver.close();
         }

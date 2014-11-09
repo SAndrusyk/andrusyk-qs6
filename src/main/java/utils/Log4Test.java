@@ -26,7 +26,7 @@ public class Log4Test {
         return String.format(ERROR_LOG, message);
     }
 
-    public static String info(String message)
+    public static String info (String message)
     {
         LOGGER.info(String.format(INFO_LOG, message));
         Reporter.log(String.format(INFO_LOG, message));
