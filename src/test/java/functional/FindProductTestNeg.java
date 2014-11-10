@@ -14,7 +14,7 @@ public class FindProductTestNeg extends functional {
     public static final String textToFind = "iuqyiquyeiqy";
 
     @Test
-    public void FindProduct() {
+    public void FindProduct() throws InterruptedException {
         Log4Test.info("******************************************************");
         Log4Test.info("Starting Hotline Find text Negative test");
         Log4Test.info("******************************************************");
@@ -30,13 +30,17 @@ public class FindProductTestNeg extends functional {
         Log4Test.info("Check result");
         GoodsPage goodsPage = new GoodsPage(driver);
 
-        if (!goodsPage.isOnPage(textToFind)) {
-            Assert.assertTrue(true);
-            Log4Test.info("Hotline Find text Negative test result - PASS!");
-            Log4Test.info("******************************************************");
-        } else {
+        Thread.sleep(10000);
+
+
+//        Assert.assertFalse(goodsPage.isOnPage(textToFind));
+
+        if (goodsPage.isOnPage(textToFind)) {
             Log4Test.error("Hotline Find text Negative test result - FAIL!");
             Assert.fail("Expected product was found on result page.");
+        } else {Assert.assertTrue(true);
+            Log4Test.info("Hotline Find text Negative test result - PASS!");
+            Log4Test.info("******************************************************");
         }
     }
 

@@ -34,8 +34,8 @@ public class HomePage {
     public void closeADPopUp()
     {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 3);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(popUpCloseButtonSelector));
+            WebDriverWait wait = new WebDriverWait(driver, 30);
+            wait.until(ExpectedConditions.visibilityOf(driver.findElement(popUpCloseButtonSelector)));
             driver.findElement(popUpCloseButtonSelector).click();
             Log4Test.info("Banner was found and closed");
         } catch (TimeoutException e){
@@ -46,8 +46,8 @@ public class HomePage {
     public void selectCity()
     {
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 3);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(selectCityCloseSelector));
+            WebDriverWait wait = new WebDriverWait(driver, 30);
+            wait.until(ExpectedConditions.visibilityOf(driver.findElement(selectCityCloseSelector)));
             driver.findElement(selectCityCloseSelector).click();
             Log4Test.info("City select Banner was found and closed");
         } catch (TimeoutException e) {
@@ -57,8 +57,8 @@ public class HomePage {
 
     public void register()
     {
-        WebDriverWait wait = new WebDriverWait(driver,3);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(loginLinkSelector));
+        WebDriverWait wait = new WebDriverWait(driver,30);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(loginLinkSelector)));
         driver.findElement(loginLinkSelector).click();
         Log4Test.info("Register link was found and clicked");
     }
@@ -67,8 +67,8 @@ public class HomePage {
     {
         Log4Test.info("Searching for e-mail error");
         try {
-            WebDriverWait wait = new WebDriverWait(driver, 3);
-            wait.until(ExpectedConditions.visibilityOfElementLocated(negConditionSelector));
+            WebDriverWait wait = new WebDriverWait(driver, 30);
+            wait.until(ExpectedConditions.visibilityOf(driver.findElement(negConditionSelector)));
             Log4Test.info("Expected error was found");
             return true;
         } catch (TimeoutException e) {

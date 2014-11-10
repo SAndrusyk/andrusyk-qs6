@@ -30,6 +30,8 @@ public class FindProductCompareTest extends functional {
         Log4Test.info("Check result");
         GoodsPage goodsPage = new GoodsPage(driver);
 
+        Thread.sleep(10000);
+
         if (goodsPage.amountGoodsOnPage(textToFind)>1) {
             Assert.assertTrue(true);
             Log4Test.info("Hotline Compare test result - PASS!");

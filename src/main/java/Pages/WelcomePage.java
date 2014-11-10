@@ -23,8 +23,8 @@ public class WelcomePage {
 
     public Boolean isOnPage()
     {
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(profileNameFieldSelector));
+        WebDriverWait wait = new WebDriverWait(driver,30);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(profileNameFieldSelector)));
 
         return driver.findElement(profileNameFieldSelector).isDisplayed();
     }

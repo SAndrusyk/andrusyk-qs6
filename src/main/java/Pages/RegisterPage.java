@@ -30,8 +30,8 @@ public class RegisterPage {
     public void fillUserData(HW5User user)
     {
 
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(emailFieldSelector));
+        WebDriverWait wait = new WebDriverWait(driver,30);
+        wait.until(ExpectedConditions.visibilityOf(driver.findElement(emailFieldSelector)));
 
         driver.findElement(emailFieldSelector).sendKeys(user.email);
         driver.findElement(nickFieldSelector).sendKeys(user.nickname);
