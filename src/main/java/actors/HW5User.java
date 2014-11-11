@@ -16,7 +16,7 @@ public class HW5User
     public HW5User()
     {
         Log4Test.info("User data:");
-        this.email = "asd"+ Long.toString(System.currentTimeMillis()) +"@iua";
+        this.email = "asd"+ Long.toString(System.currentTimeMillis()) +"@i.ua";
         Log4Test.info("User email:    "+ email);
         this.nickname = "asd";
         Log4Test.info("User nickname: "+ nickname);
