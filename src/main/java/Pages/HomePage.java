@@ -1,8 +1,7 @@
 package Pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -21,6 +20,8 @@ public class HomePage {
 
     private static final By searchFieldSelector = By.id("searchbox");
     private static final By searchButtonSelector = By.id("doSearch");
+
+
 
     //End of constants for HomePage objects
 
@@ -78,9 +79,26 @@ public class HomePage {
     public void findElement(String elementName)
     {
         Log4Test.info("Enter text for search to the search field");
-        driver.findElement(searchFieldSelector).sendKeys(elementName);
+        driver.findElement(searchFieldSelector).sendKeys(elementName + Keys.RETURN);
         Log4Test.info("Press Search button");
-        driver.findElement(searchButtonSelector).click();
+//        driver.findElement(searchButtonSelector).click();
+//        driver.findElement(searchFieldSelector).sendKeys(Keys.RETURN);
+    }
+
+//    private static final By btCatSelector = By.xpath("//a[@href='/bt/']");
+    private static final By btCatSelector = By.id("lv-1-548");
+
+    public void selectBtCat()
+    {
+//        driver.findElement(btCatSelector).submit();
+        Actions actions = new Actions(driver);
+        WebElement element = driver.findElement(btCatSelector);
+        actions.moveToElement(element).build().perform();
+
+        try {Thread.sleep(100000);} catch (InterruptedException e) {Log4Test.error("Thread.sleep() Exception");}
+
+
+
     }
 
 

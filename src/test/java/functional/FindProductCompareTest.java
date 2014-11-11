@@ -14,7 +14,7 @@ public class FindProductCompareTest extends functional {
     public static final String textToFind = "ASUS";
 
     @Test
-    public void FindProduct() throws InterruptedException {
+    public void FindProduct() {
         Log4Test.info("******************************************************");
         Log4Test.info("Starting Hotline Compare test");
         Log4Test.info("******************************************************");
@@ -30,7 +30,7 @@ public class FindProductCompareTest extends functional {
         Log4Test.info("Check result");
         GoodsPage goodsPage = new GoodsPage(driver);
 
-        Thread.sleep(10000);
+        try {Thread.sleep(10000);} catch (InterruptedException e) {Log4Test.error("Thread.sleep() Exception");}
 
         if (goodsPage.countingGoodsOnPage(textToFind)>1) {
             Assert.assertTrue(true);

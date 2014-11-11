@@ -31,8 +31,10 @@ public class FindProductTest extends functional {
         homePage.selectCity();
         Log4Test.info("Find text: '" +textToFind+"'");
         homePage.findElement(textToFind);
+//        driver.get("http://hotline.ua/sr/?q=ASUS");
         Log4Test.info("Check result");
         GoodsPage goodsPage = new GoodsPage(driver);
+        try {Thread.sleep(10000);} catch (InterruptedException e) {Log4Test.error("Thread.sleep() Exception");}
 
         if (goodsPage.isOnPage(textToFind)) {
             Assert.assertTrue(true);
