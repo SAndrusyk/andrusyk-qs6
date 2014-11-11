@@ -9,20 +9,14 @@ public class HW5User
 {
 
     //Constants for User objects
-//    public static final String email = "asd"+ Long.toString(System.currentTimeMillis()) +"@i.ua";
-//    public static final String email = "klm223@i.ua";
-//    public static final String nickname = "asd";
-//    public static final String passwd = "qwerty";
-
     public String email;
     public String nickname;
     public String passwd;
 
-
     public HW5User()
     {
         Log4Test.info("User data:");
-        this.email = "asd"+ Long.toString(System.currentTimeMillis()) +"@i.ua";
+        this.email = "asd"+ Long.toString(System.currentTimeMillis()) +"@iua";
         Log4Test.info("User email:    "+ email);
         this.nickname = "asd";
         Log4Test.info("User nickname: "+ nickname);

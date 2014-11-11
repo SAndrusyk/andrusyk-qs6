@@ -40,7 +40,7 @@ public class HotlineRegNeg extends functional
         registerPage.register();
         WelcomePage welcomePage = new WelcomePage(driver);
         Log4Test.info("Check result");
-        if (homePage.negCondition()) {
+        if (homePage.emailErrorDetect()) {
             Log4Test.info("Hotline Registration negative test result - PASS");
             Assert.assertTrue(true);
             Log4Test.info("******************************************************");

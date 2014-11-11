@@ -2,8 +2,7 @@ package Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Log4Test;
 
 /**
  * Created by HomeUser on 04.11.2014.
@@ -23,10 +22,13 @@ public class WelcomePage {
 
     public Boolean isOnPage()
     {
-        WebDriverWait wait = new WebDriverWait(driver,30);
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(profileNameFieldSelector)));
-
-        return driver.findElement(profileNameFieldSelector).isDisplayed();
+        try {driver.findElement(profileNameFieldSelector).isDisplayed();}
+        catch (Exception e) {
+            Log4Test.error("Expected page wasn't found");
+            return false;
+        }
+        Log4Test.info("Expected error was found");
+        return true;
     }
 
 

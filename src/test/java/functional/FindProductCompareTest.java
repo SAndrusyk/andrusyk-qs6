@@ -32,7 +32,7 @@ public class FindProductCompareTest extends functional {
 
         Thread.sleep(10000);
 
-        if (goodsPage.amountGoodsOnPage(textToFind)>1) {
+        if (goodsPage.countingGoodsOnPage(textToFind)>1) {
             Assert.assertTrue(true);
             Log4Test.info("Hotline Compare test result - PASS!");
             Log4Test.info("******************************************************");
