@@ -1,11 +1,21 @@
 package Pages;
 
+import com.gargoylesoftware.htmlunit.html.DomText;
+import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.internal.ProfilesIni;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import utils.Log4Test;
+
+import java.lang.reflect.Array;
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by HomeUser on 01.11.2014.
@@ -87,15 +97,28 @@ public class HomePage {
 
 //    private static final By btCatSelector = By.xpath("//a[@href='/bt/']");
     private static final By btCatSelector = By.id("lv-1-548");
+    private static final By lgRefregLinkSelector = By.xpath("//a[@href='/bt/holodilniki/627/']");
+    private static final By sortByXpathSelector = By.xpath("//div[2]/div[contains(@class,'type')]/span[contains(@class,'ddopener')]/i");
+    private static final By sortByPriceLinkSelector = By.xpath("//div[2]/div[contains(@class,'type')]/div[contains(@class,'choice')]/a[1]");
+
+
 
     public void selectBtCat()
     {
-//        driver.findElement(btCatSelector).submit();
-        Actions actions = new Actions(driver);
-        WebElement element = driver.findElement(btCatSelector);
-        actions.moveToElement(element).build().perform();
 
-        try {Thread.sleep(100000);} catch (InterruptedException e) {Log4Test.error("Thread.sleep() Exception");}
+//        Actions actions = new Actions(driver);
+//        actions.moveToElement(driver.findElement(btCatSelector)).perform();
+//        try {Thread.sleep(100000);} catch (InterruptedException e) {Log4Test.error("Thread.sleep() Exception");}
+        driver.get("http://hotline.ua/bt/holodilniki/");
+        driver.findElement(lgRefregLinkSelector).click();
+        driver.findElement(sortByXpathSelector).click();
+        driver.findElement(sortByPriceLinkSelector).click();
+        String element = driver.findElement(By.xpath("//div[contains(@class,'price')]/span/text()[1]")).getText();
+//        String a = driver.findElement(By.xpath("//div[contains(@class,'price')]/span/text()[1]")).getAttribute("textContent").toString();
+//        System.out.println(a);
+
+          Assert.assertTrue(true);
+
 
 
 

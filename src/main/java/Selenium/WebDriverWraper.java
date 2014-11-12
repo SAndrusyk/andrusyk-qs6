@@ -6,9 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.PropertyLoader;
-
-import java.sql.Time;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Set;
 
@@ -23,8 +20,6 @@ public class WebDriverWraper implements WebDriver {
     public WebDriverWraper(WebDriver driver)
     {
         this.driver = driver;
-
-
     }
 
 
