@@ -1,5 +1,6 @@
 package Pages;
 
+import Selenium.WebDriverWraper;
 import com.gargoylesoftware.htmlunit.html.DomText;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import org.openqa.selenium.*;
@@ -16,6 +17,7 @@ import java.lang.reflect.Array;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by HomeUser on 01.11.2014.
@@ -36,9 +38,9 @@ public class HomePage {
     //End of constants for HomePage objects
 
 
-    private static WebDriver driver;
+    private static WebDriverWraper driver;
 
-    public HomePage(WebDriver driver)
+    public HomePage(WebDriverWraper driver)
     {
         this.driver = driver;
     }
@@ -89,6 +91,7 @@ public class HomePage {
     public void findElement(String elementName)
     {
         Log4Test.info("Enter text for search to the search field");
+        driver.findElement(searchFieldSelector).clear();
         driver.findElement(searchFieldSelector).sendKeys(elementName + Keys.RETURN);
         Log4Test.info("Press Search button");
 //        driver.findElement(searchButtonSelector).click();
@@ -103,21 +106,24 @@ public class HomePage {
 
 
 
-    public void selectBtCat()
-    {
+    public void selectBtCat()  {
 
-//        Actions actions = new Actions(driver);
-//        actions.moveToElement(driver.findElement(btCatSelector)).perform();
-//        try {Thread.sleep(100000);} catch (InterruptedException e) {Log4Test.error("Thread.sleep() Exception");}
-        driver.get("http://hotline.ua/bt/holodilniki/");
-        driver.findElement(lgRefregLinkSelector).click();
-        driver.findElement(sortByXpathSelector).click();
-        driver.findElement(sortByPriceLinkSelector).click();
-        String element = driver.findElement(By.xpath("//div[contains(@class,'price')]/span/text()[1]")).getText();
-//        String a = driver.findElement(By.xpath("//div[contains(@class,'price')]/span/text()[1]")).getAttribute("textContent").toString();
-//        System.out.println(a);
+        Actions actions = new Actions(driver.getOriginarDriver());
+        actions.moveToElement(driver.findElement(By.xpath("//a[@href='/bt/']")));
+        actions.perform();
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.findElement(By.xpath("//a[@href='/bt/holodilniki/']")).click();
 
-          Assert.assertTrue(true);
+//        driver.findElement(lgRefregLinkSelector).click();
+//        driver.findElement(sortByXpathSelector).click();
+//        driver.findElement(sortByPriceLinkSelector).click();
+
+
+        driver.findElement(lgRefregLinkSelector).sendKeys(Keys.PAGE_DOWN);
+
+        try {Thread.sleep(10000);} catch (Exception e)  {};
+
+
 
 
 

@@ -1,5 +1,6 @@
 package Pages;
 
+import Selenium.WebDriverWraper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import utils.Log4Test;
@@ -13,9 +14,9 @@ public class WelcomePage {
     private static final By profileNameFieldSelector = By.name("first_name");
     //End of constants for WelcomePage objects
 
-    private static WebDriver driver;
+    private static WebDriverWraper driver;
 
-    public WelcomePage(WebDriver driver)
+    public WelcomePage(WebDriverWraper driver)
     {
         this.driver = driver;
     }

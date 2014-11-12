@@ -1,5 +1,6 @@
 package Pages;
 
+import Selenium.WebDriverWraper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,8 +12,8 @@ import utils.Log4Test;
  * Created by bionic on 11/5/14.
  */
 public class GoodsPage {
-    private static WebDriver driver;
-    public GoodsPage(WebDriver driver)
+    private static WebDriverWraper driver;
+    public GoodsPage(WebDriverWraper driver)
     {
         this.driver = driver;
     }

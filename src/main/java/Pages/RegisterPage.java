@@ -1,5 +1,6 @@
 package Pages;
 
+import Selenium.WebDriverWraper;
 import actors.HW5User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,9 +21,9 @@ public class RegisterPage {
 
     //End of constants for RegisterPage objects
 
-    private static WebDriver driver;
+    private static WebDriverWraper driver;
 
-    public RegisterPage(WebDriver driver)
+    public RegisterPage(WebDriverWraper driver)
     {
         this.driver = driver;
     }
