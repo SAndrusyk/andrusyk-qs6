@@ -14,7 +14,7 @@ public class SortLgFridgeByPrice extends functional {
     public void selectCategory ()
     {
         Log4Test.info("******************************************************");
-        Log4Test.info("Starting SelectCategory test");
+        Log4Test.info("Starting SortLgFridgeByPrice test");
         Log4Test.info("******************************************************");
         Log4Test.info("Open Homepage URL");
         driver.get(siteUrl);

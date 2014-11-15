@@ -111,23 +111,36 @@ public class HomePage {
     public void selectBtCat()  {
 
         Actions actions = new Actions(driver.getOriginarDriver());
+        Log4Test.info("Oprn menu 'BT'");
         actions.moveToElement(driver.findElement(By.xpath("//a[@href='/bt/']")));
         actions.perform();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        Log4Test.info("Select Fridge category");
         driver.findElement(By.xpath("//a[@href='/bt/holodilniki/']")).click();
-
+        Log4Test.info("Select LG brand");
         driver.findElement(lgRefregLinkSelector).click();
+        Log4Test.info("Open sort menu");
         driver.findElement(sortByXpathSelector).click();
+        Log4Test.info("Select Sort by price");
         driver.findElement(sortByPriceLinkSelector).click();
 
-//        driver.findElement(lgRefregLinkSelector).sendKeys(Keys.PAGE_DOWN);
-
-//        try {Thread.sleep(10000);} catch (Exception e)  {};
-
+        Log4Test.info("Get list of price from web-page");
         WebElement element = driver.findElement(By.xpath("//div[@class='price']"));
         List<WebElement> prices = element.findElements(By.xpath("//span[@class='orng']"));
-
-        Assert.assertTrue(getIntPriceFromString(prices.get(0).getText()) <= getIntPriceFromString(prices.get(1).getText()), "Second price higher then first") ;
+        Log4Test.info("Get price1string");
+        String price1string = prices.get(0).getText();
+        Log4Test.info(price1string);
+        Log4Test.info("Get price2string");
+        String price2string = prices.get(1).getText();
+        Log4Test.info(price2string);
+        Log4Test.info("Get Integer prices from String. Price 1");
+        Integer price1 = getIntPriceFromString(price1string);
+        Log4Test.info(price1.toString());
+        Log4Test.info("Get Integer prices from String. Price 1");
+        Integer price2 = getIntPriceFromString(price2string);
+        Log4Test.info(price2.toString());
+        Log4Test.info("Check assert conditions");
+        Assert.assertTrue( price1 <= price2 , "Second price higher then first") ;
 
     }
 
