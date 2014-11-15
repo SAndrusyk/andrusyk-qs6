@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Log4Test;
 
 /**
  * Created by HomeUser on 01.11.2014.
@@ -30,7 +31,7 @@ public class RegisterPage {
 
     public void fillUserData(HW5User user)
     {
-
+        Log4Test.info("Fill user data");
         WebDriverWait wait = new WebDriverWait(driver,30);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(emailFieldSelector)));
 
@@ -42,6 +43,7 @@ public class RegisterPage {
 
     public void register()
     {
+        Log4Test.info("Click on 'Register' button");
         driver.findElement(regButtonSelector).click();
     }
 

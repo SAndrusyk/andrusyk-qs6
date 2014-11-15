@@ -21,9 +21,7 @@ public class FindProductCompareTest extends functional {
         Log4Test.info("Open Homepage URL");
         driver.get(siteUrl);
         HomePage homePage = new HomePage(driver);
-        Log4Test.info("Close AD PopUp if it exist");
         homePage.closeADPopUp();
-        Log4Test.info("Select City on popup if it exist");
         homePage.selectCity();
         Log4Test.info("Find text: '" + textToFind + "'");
         homePage.findElement(textToFind);

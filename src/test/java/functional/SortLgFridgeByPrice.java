@@ -24,16 +24,22 @@ public class SortLgFridgeByPrice extends functional {
         Log4Test.info("Open Homepage URL");
         driver.get(siteUrl);
         HomePage homePage = new HomePage(driver);
-        Log4Test.info("Close AD PopUp if it exist");
         homePage.closeADPopUp();
-        Log4Test.info("Select City on popup if it exist");
         homePage.selectCity();
         homePage.selectFridgeCat();
         FridgesPage fridgesPage = new FridgesPage(driver);
         fridgesPage.fridgeLGbyPriceSelect();
-        Assert.assertTrue(fridgesPage.priceListSortByIncrease());
-        Log4Test.info("SortLgFridgeByPrice test result - PASS!");
-        Log4Test.info("******************************************************");
+        if (fridgesPage.priceListSortByIncrease()) {
+            Log4Test.info("SortLgFridgeByPrice test result - PASS!");
+            Log4Test.info("******************************************************");
+            Assert.assertTrue(true);}
+        else {
+            Log4Test.info("SortLgFridgeByPrice test result - FAIL!");
+            Assert.fail("First price not less then second.");
+        }
+
+
+
     }
 
 }

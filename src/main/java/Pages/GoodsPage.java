@@ -24,6 +24,7 @@ public class GoodsPage {
         final By elementOfListSelector = By.xpath("//a[contains(text(),'" + textToFind + "')]");
         // end of constants list
 
+        Log4Test.info("Searching expected goods");
         try {driver.findElement(elementOfListSelector).isDisplayed();}
         catch (Exception e) {
             Log4Test.info("Expected good wasn't found on the page");
@@ -38,9 +39,10 @@ public class GoodsPage {
         final By elementOfListSelector = By.xpath("//a[contains(text(),'" + textToFind + "')]");
         // end of constants list
 
+        Log4Test.info("Counting goods on the page");
         try {driver.findElement(elementOfListSelector).isDisplayed();}
         catch (Exception e) {
-            Log4Test.info("Expected elements was not found on result page");
+            Log4Test.info("Expected elements was not found on page");
             return 0;
         }
         Log4Test.info("Expected good was found on the page. Counting goods.");

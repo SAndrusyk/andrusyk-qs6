@@ -25,13 +25,10 @@ public class FindProductTest extends functional {
         Log4Test.info("Open Homepage URL");
         driver.get(siteUrl);
         HomePage homePage = new HomePage(driver);
-        Log4Test.info("Close AD PopUp if it exist");
         homePage.closeADPopUp();
-        Log4Test.info("Select City on popup if it exist");
         homePage.selectCity();
         Log4Test.info("Find text: '" +textToFind+"'");
         homePage.findElement(textToFind);
-//        driver.get("http://hotline.ua/sr/?q=ASUS");
         Log4Test.info("Check result");
         GoodsPage goodsPage = new GoodsPage(driver);
         try {Thread.sleep(10000);} catch (InterruptedException e) {Log4Test.error("Thread.sleep() Exception");}

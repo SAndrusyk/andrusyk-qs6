@@ -35,29 +35,31 @@ public class HomePage {
 
     public void closeADPopUp()
     {
-
-            if (driver.findElement(popUpCloseButtonSelector).isDisplayed()) {
-                driver.findElement(popUpCloseButtonSelector).click();
-                Log4Test.info("Banner was found and closed");
-            } else {
-                Log4Test.info("Banner wasn't found");
-            }
+        Log4Test.info("Close AD PopUp if it exist");
+        if (driver.findElement(popUpCloseButtonSelector).isDisplayed()) {
+            driver.findElement(popUpCloseButtonSelector).click();
+            Log4Test.info("Banner was found and closed");
+        } else {
+            Log4Test.info("Banner wasn't found");
+        }
 
     }
 
     public void selectCity()
     {
-            if (driver.findElement(selectCityCloseSelector).isDisplayed()) {
-                driver.findElement(selectCityCloseSelector).click();
-                Log4Test.info("City select Banner was found and closed");
-            } else {
-                Log4Test.info("City selection banner wasn't found");
-            }
+        Log4Test.info("Select City on popup if it exist");
+        if (driver.findElement(selectCityCloseSelector).isDisplayed()) {
+            driver.findElement(selectCityCloseSelector).click();
+            Log4Test.info("City select Banner was found and closed");
+        } else {
+            Log4Test.info("City selection banner wasn't found");
+        }
 
     }
 
     public void register()
     {
+        Log4Test.info("Click on register link");
         if (driver.findElement(loginLinkSelector).isDisplayed()) {
             driver.findElement(loginLinkSelector).click();
             Log4Test.info("Register link was found and clicked");

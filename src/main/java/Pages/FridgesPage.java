@@ -18,7 +18,8 @@ public class FridgesPage
     private static final By lgRefregLinkSelector = By.xpath("//a[@href='/bt/holodilniki/627/']");
     private static final By sortByXpathSelector = By.xpath("//div[2]/div[contains(@class,'type')]/span[contains(@class,'ddopener')]/i");
     private static final By sortByPriceLinkSelector = By.xpath("//div[2]/div[contains(@class,'type')]/div[contains(@class,'choice')]/a[1]");
-
+    private static final By priceListElementsSelector = By.xpath("//div[@class='price']");
+    private static final By priceTextSelector = By.xpath("//span[@class='orng']");
 
     private static WebDriverWraper driver;
 
@@ -41,8 +42,8 @@ public class FridgesPage
     public Boolean priceListSortByIncrease()
     {
         Log4Test.info("Compare first and second prices");
-        WebElement element = driver.findElement(By.xpath("//div[@class='price']"));
-        List<WebElement> prices = element.findElements(By.xpath("//span[@class='orng']"));
+        WebElement element = driver.findElement(priceListElementsSelector);
+        List<WebElement> prices = element.findElements(priceTextSelector);
         Integer firstPrice = getIntPriceFromString(prices.get(0).getText());
         Log4Test.info("Firs price = " + firstPrice);
         Integer secondPrice = getIntPriceFromString(prices.get(1).getText());
