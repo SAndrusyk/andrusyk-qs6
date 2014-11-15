@@ -32,10 +32,18 @@
         <!--</classes>-->
     <!--</test>-->
 
-    <test name="SelectCategoty">
+    <!--<test name="SelectCategoty">-->
+        <!--<classes>-->
+            <!--<class name="functional.SelectCategory"/>-->
+        <!--</classes>-->
+    <!--</test>-->
+
+    <test name="ByFridge">
         <classes>
-            <class name="functional.SelectCategory"/>
+            <class name="functional.ByFridge"/>
         </classes>
     </test>
+
+
 
 </suite>
