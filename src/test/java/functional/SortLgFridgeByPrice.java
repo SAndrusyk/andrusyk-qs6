@@ -8,7 +8,7 @@ import utils.Log4Test;
 /**
  * Created by HomeUser on 11.11.2014.
  */
-public class SelectCategory extends functional {
+public class SortLgFridgeByPrice extends functional {
 
     @Test
     public void selectCategory ()
@@ -26,7 +26,7 @@ public class SelectCategory extends functional {
 
         homePage.selectBtCat();
 
-        Assert.assertTrue(true);
+
 
     }
 }

@@ -2,47 +2,47 @@
 
 <suite name="functionalTestSuite">
 
-    <!--<test name="HotlineRegistrationTest" >-->
-        <!--<classes>-->
-            <!--<class name="functional.HotlineRegistration" />-->
-        <!--</classes>-->
-    <!--</test>-->
-
-    <!--<test name="HotlineRegistrationTestNegative" >-->
-        <!--<classes>-->
-            <!--<class name="functional.HotlineRegNeg" />-->
-        <!--</classes>-->
-    <!--</test>-->
-
-    <!--<test name="FindProductTest">-->
-        <!--<classes>-->
-            <!--<class name="functional.FindProductTest" />-->
-        <!--</classes>-->
-    <!--</test>-->
-
-    <!--<test name="FindProductTestNeg">-->
-        <!--<classes>-->
-            <!--<class name="functional.FindProductTestNeg"/>-->
-        <!--</classes>-->
-    <!--</test>-->
-
-    <!--<test name="FindProductCompareTest">-->
-        <!--<classes>-->
-            <!--<class name="functional.FindProductCompareTest"/>-->
-        <!--</classes>-->
-    <!--</test>-->
-
-    <!--<test name="SelectCategoty">-->
-        <!--<classes>-->
-            <!--<class name="functional.SelectCategory"/>-->
-        <!--</classes>-->
-    <!--</test>-->
-
-    <test name="ByFridge">
+    <test name="HotlineRegistrationTest" >
         <classes>
-            <class name="functional.ByFridge"/>
+            <class name="functional.HotlineRegistration" />
         </classes>
     </test>
+
+    <test name="HotlineRegistrationTestNegative" >
+        <classes>
+            <class name="functional.HotlineRegNeg" />
+        </classes>
+    </test>
+
+    <test name="FindProductTest">
+        <classes>
+            <class name="functional.FindProductTest" />
+        </classes>
+    </test>
+
+    <test name="FindProductTestNeg">
+        <classes>
+            <class name="functional.FindProductTestNeg"/>
+        </classes>
+    </test>
+
+    <test name="FindProductCompareTest">
+        <classes>
+            <class name="functional.FindProductCompareTest"/>
+        </classes>
+    </test>
+
+    <test name="SortLgFridgeByPrice">
+        <classes>
+            <class name="functional.SortLgFridgeByPrice"/>
+        </classes>
+    </test>
+
+    <!--<test name="ByFridge">-->
+        <!--<classes>-->
+            <!--<class name="functional.ByFridge"/>-->
+        <!--</classes>-->
+    <!--</test>-->
 
 
 

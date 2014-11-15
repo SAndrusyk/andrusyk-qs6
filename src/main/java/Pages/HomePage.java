@@ -7,6 +7,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
+import org.openqa.selenium.firefox.internal.Streams;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -93,6 +94,7 @@ public class HomePage {
         Log4Test.info("Enter text for search to the search field");
         driver.findElement(searchFieldSelector).clear();
         driver.findElement(searchFieldSelector).sendKeys(elementName + Keys.RETURN);
+//        driver.findElement(searchFieldSelector).submit();
         Log4Test.info("Press Search button");
 //        driver.findElement(searchButtonSelector).click();
 //        driver.findElement(searchFieldSelector).sendKeys(Keys.RETURN);
@@ -114,22 +116,25 @@ public class HomePage {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//a[@href='/bt/holodilniki/']")).click();
 
-//        driver.findElement(lgRefregLinkSelector).click();
-//        driver.findElement(sortByXpathSelector).click();
-//        driver.findElement(sortByPriceLinkSelector).click();
+        driver.findElement(lgRefregLinkSelector).click();
+        driver.findElement(sortByXpathSelector).click();
+        driver.findElement(sortByPriceLinkSelector).click();
 
+//        driver.findElement(lgRefregLinkSelector).sendKeys(Keys.PAGE_DOWN);
 
-        driver.findElement(lgRefregLinkSelector).sendKeys(Keys.PAGE_DOWN);
+//        try {Thread.sleep(10000);} catch (Exception e)  {};
 
-        try {Thread.sleep(10000);} catch (Exception e)  {};
+        WebElement element = driver.findElement(By.xpath("//div[@class='price']"));
+        List<WebElement> prices = element.findElements(By.xpath("//span[@class='orng']"));
 
-
-
-
-
+        Assert.assertTrue(getIntPriceFromString(prices.get(0).getText()) <= getIntPriceFromString(prices.get(1).getText()), "Second price higher then first") ;
 
     }
 
+    private Integer getIntPriceFromString (String textWithPrice)
+    {
+        return Integer.parseInt(textWithPrice.substring(0, textWithPrice.indexOf("грн")).trim().replaceAll(" ",""));
+    }
 
 
 
