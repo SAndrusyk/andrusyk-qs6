@@ -1,9 +1,14 @@
 package functional;
 
+import Pages.FridgesPage;
 import Pages.HomePage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.Log4Test;
+
+import java.util.List;
 
 /**
  * Created by HomeUser on 11.11.2014.
@@ -23,10 +28,12 @@ public class SortLgFridgeByPrice extends functional {
         homePage.closeADPopUp();
         Log4Test.info("Select City on popup if it exist");
         homePage.selectCity();
-
-        homePage.selectBtCat();
-
-
-
+        homePage.selectFridgeCat();
+        FridgesPage fridgesPage = new FridgesPage(driver);
+        fridgesPage.fridgeLGbyPriceSelect();
+        Assert.assertTrue(fridgesPage.priceListSortByIncrease());
+        Log4Test.info("SortLgFridgeByPrice test result - PASS!");
+        Log4Test.info("******************************************************");
     }
+
 }

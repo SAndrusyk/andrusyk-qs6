@@ -1,5 +1,6 @@
 package functional;
 
+import Pages.HomePage;
 import Selenium.WebDriverFactory;
 import Selenium.WebDriverWraper;
 import actors.HW5User;
