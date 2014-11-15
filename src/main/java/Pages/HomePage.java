@@ -90,7 +90,7 @@ public class HomePage {
         Log4Test.info("Open menu 'BT'");
         actions.moveToElement(driver.findElement(btCatSelector));
         actions.perform();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         Log4Test.info("Select Fridge category");
         driver.findElement(fridgeCatSelector).click();
     }
