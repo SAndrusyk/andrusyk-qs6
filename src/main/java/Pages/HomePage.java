@@ -60,10 +60,8 @@ public class HomePage {
     public void register()
     {
         Log4Test.info("Click on register link");
-        if (driver.findElement(loginLinkSelector).isDisplayed()) {
-            driver.findElement(loginLinkSelector).click();
-            Log4Test.info("Register link was found and clicked");
-        } else {Assert.fail("Register link wasn't found");}
+        driver.findElement(loginLinkSelector).click();
+        Log4Test.info("Register link was found and clicked");
     }
 
     public Boolean emailErrorDetect()
