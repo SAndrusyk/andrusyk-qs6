@@ -15,22 +15,17 @@ public class FindProductCompareTest extends functional {
 
     @Test
     public void FindProduct() {
-        Log4Test.info("******************************************************");
-        Log4Test.info("Starting Hotline Compare test");
-        Log4Test.info("******************************************************");
-        Log4Test.info("Open Homepage URL");
-        driver.get(siteUrl);
-        HomePage homePage = new HomePage(driver);
-        homePage.closeADPopUp();
-        homePage.selectCity();
+        Log4Test.info("Compare test");
         Log4Test.info("Find text: '" + textToFind + "'");
+
+        HomePage homePage = new HomePage(driver);
         homePage.findElement(textToFind);
-        Log4Test.info("Check result");
+
         GoodsPage goodsPage = new GoodsPage(driver);
+        try {Thread.sleep(10000);} catch (InterruptedException e) {Assert.fail("Thread.sleep() Exception");}
 
-        try {Thread.sleep(10000);} catch (InterruptedException e) {Log4Test.error("Thread.sleep() Exception");}
-
-        Assert.assertTrue(goodsPage.countingGoodsOnPage(textToFind)>1, "No products found");
+        Log4Test.info("Check result");
+        Assert.assertTrue(goodsPage.countingGoodsOnPage(textToFind) > 1, "Less then 2 products found");
 
     }
 }

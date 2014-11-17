@@ -58,18 +58,13 @@ public class FridgesPage
     }
 
 
-
-
-
-
-
     private Integer getIntPriceFromString (String textWithPrice)
     {
         String[] a = textWithPrice.split(" ");
         StringBuffer buffer = new StringBuffer();
         for (Integer i = 0; i< a.length; i++)
         {
-            try {Integer.parseInt(a[i]);} catch (Exception e){break;}
+            try {Integer.parseInt(a[i]);} catch (NumberFormatException e){break;}
             buffer.append(a[i]);
         }
         return Integer.parseInt(buffer.toString());

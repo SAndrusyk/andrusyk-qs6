@@ -77,16 +77,15 @@ public class HomePage {
 
     public void findElement(String elementName)
     {
-        Log4Test.info("Enter text '"+elementName+ "' for search to the search field");
+        Log4Test.info("Enter text '" + elementName + "' to the search field and press Enter key");
         driver.findElement(searchFieldSelector).clear();
         driver.findElement(searchFieldSelector).sendKeys(elementName + Keys.RETURN);
-        Log4Test.info("Press Search button");
     }
 
-    public void selectFridgeCat()  {
-
-        Actions actions = new Actions(driver.getOriginarDriver());
+    public void selectFridgeCat()
+    {
         Log4Test.info("Open menu 'BT'");
+        Actions actions = new Actions(driver.getOriginarDriver());
         actions.moveToElement(driver.findElement(btCatSelector));
         actions.perform();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

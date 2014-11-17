@@ -18,9 +18,7 @@ public class SortLgFridgeByPrice extends functional {
     @Test
     public void selectCategory ()
     {
-        Log4Test.info("******************************************************");
-        Log4Test.info("Starting SortLgFridgeByPrice test");
-        Log4Test.info("******************************************************");
+        Log4Test.info("SortLgFridgeByPrice test");
 
         HomePage homePage = new HomePage(driver);
         homePage.selectFridgeCat();
@@ -28,16 +26,7 @@ public class SortLgFridgeByPrice extends functional {
         FridgesPage fridgesPage = new FridgesPage(driver);
         fridgesPage.fridgeLGbyPriceSelect();
 
-        if (fridgesPage.priceListSortByIncrease()) {
-            Log4Test.info("SortLgFridgeByPrice test result - PASS!");
-            Log4Test.info("******************************************************");
-            Assert.assertTrue(true);}
-        else {
-            Log4Test.info("SortLgFridgeByPrice test result - FAIL!");
-            Assert.fail("First price not less then second.");
-        }
-
-
+        Assert.assertTrue(fridgesPage.priceListSortByIncrease(), "Second price less then first.");
 
     }
 

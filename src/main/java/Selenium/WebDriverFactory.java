@@ -19,11 +19,11 @@ public class WebDriverFactory {
     {
         WebDriverWraper driverWraper = null;
         if (driverName.equalsIgnoreCase(FIREFOX)) {
-            Log4Test.info("Use WebDriver - Firefox driver");
+            Log4Test.info("Use Firefox driver");
             driverWraper = new WebDriverWraper(new FirefoxDriver());
         }
         else if (driverName.equalsIgnoreCase(HTMLUNIT)){
-            Log4Test.info("Use WebDriver - HtmlUnit driver");
+            Log4Test.info("Use HtmlUnit driver");
             driverWraper = new WebDriverWraper(new HtmlUnitDriver());
         }
         else

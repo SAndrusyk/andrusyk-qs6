@@ -4,25 +4,25 @@
 
     <test name="HotlineRegistrationTest" >
         <classes>
-            <class name="functional.HotlineRegistration" />
+            <class name="functional.RegisterPositive" />
         </classes>
     </test>
 
     <test name="HotlineRegistrationTestNegative" >
         <classes>
-            <class name="functional.HotlineRegNeg" />
+            <class name="functional.RegisterNegative" />
         </classes>
     </test>
 
     <test name="FindProductTest">
         <classes>
-            <class name="functional.FindProductTest" />
+            <class name="functional.SearchProductPositiveTest" />
         </classes>
     </test>
 
     <test name="FindProductTestNeg">
         <classes>
-            <class name="functional.FindProductTestNeg"/>
+            <class name="functional.SearchProductNegativeTest"/>
         </classes>
     </test>
 
@@ -37,12 +37,6 @@
             <class name="functional.SortLgFridgeByPrice"/>
         </classes>
     </test>
-
-    <!--<test name="ByFridge">-->
-        <!--<classes>-->
-            <!--<class name="functional.ByFridge"/>-->
-        <!--</classes>-->
-    <!--</test>-->
 
 
 
