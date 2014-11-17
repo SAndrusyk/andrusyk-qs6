@@ -18,6 +18,9 @@ public class HotlineRegistration extends functional
     public void registerOnHotline()
     {
         Log4Test.info("Registration test");
+        HomePage homePage = new HomePage(driver);
+        homePage.register();
+
         RegisterPage registerPage = new RegisterPage(driver);
         registerPage.fillUserData(user);
         registerPage.register();

@@ -39,7 +39,8 @@ public class GoodsPage {
     public Integer countingGoodsOnPage(String textToFind)
     {
         // constants list
-        final By elementOfListSelector = By.xpath(String.format(findText,textToFind));
+//        final By elementOfListSelector = By.xpath(String.format(findText,textToFind));
+        final By elementOfListSelector = By.xpath("//a[contains(text()," + textToFind+ ")]");
         // end of constants list
 
         Log4Test.info("Counting goods on the page");

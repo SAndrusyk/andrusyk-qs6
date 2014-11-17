@@ -19,12 +19,12 @@ public class WebDriverFactory {
     {
         WebDriverWraper driverWraper = null;
         if (driverName.equalsIgnoreCase(FIREFOX)) {
-            driverWraper = new WebDriverWraper(new FirefoxDriver());
             Log4Test.info("Use WebDriver - Firefox driver");
+            driverWraper = new WebDriverWraper(new FirefoxDriver());
         }
         else if (driverName.equalsIgnoreCase(HTMLUNIT)){
-            driverWraper = new WebDriverWraper(new HtmlUnitDriver());
             Log4Test.info("Use WebDriver - HtmlUnit driver");
+            driverWraper = new WebDriverWraper(new HtmlUnitDriver());
         }
         else
             Assert.fail("Invalid driver configuration");
