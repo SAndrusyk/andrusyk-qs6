@@ -11,7 +11,7 @@ import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by HomeUser on 14.11.2014.
+ * Javascript & Robot Demonstration
  */
 
 public class ByFridge extends functional{

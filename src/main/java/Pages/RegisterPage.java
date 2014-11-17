@@ -1,9 +1,8 @@
 package Pages;
 
 import Selenium.WebDriverWraper;
-import actors.HW5User;
+import actors.User;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Log4Test;
@@ -29,7 +28,7 @@ public class RegisterPage {
         this.driver = driver;
     }
 
-    public void fillUserData(HW5User user)
+    public void fillUserData(User user)
     {
         Log4Test.info("Fill user data");
         WebDriverWait wait = new WebDriverWait(driver,30);

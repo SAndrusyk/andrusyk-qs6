@@ -18,6 +18,7 @@ public class Log4Test {
     // ****************** Default message content ********************
     private static final String INFO_LOG = "INFO: \"%s\"";
     private static final String ERROR_LOG = "ERROR: \"%s\" !";
+    private static final String PASS_LOG = "ERROR: \"%s\" !";
 
     public static String error (String message)
     {
@@ -28,6 +29,15 @@ public class Log4Test {
 
     public static String info (String message)
     {
+        LOGGER.info(String.format(INFO_LOG, message));
+        Reporter.log(String.format(INFO_LOG, message));
+        return String.format(INFO_LOG, message);
+    }
+
+    public static String testPass (String message)
+    {
+        Log4Test.info("Hotline Compare test result - PASS!");
+        Log4Test.info("******************************************************");
         LOGGER.info(String.format(INFO_LOG, message));
         Reporter.log(String.format(INFO_LOG, message));
         return String.format(INFO_LOG, message);

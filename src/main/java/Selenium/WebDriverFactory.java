@@ -4,6 +4,7 @@ package Selenium;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.testng.Assert;
+import utils.Log4Test;
 
 
 /**
@@ -17,10 +18,14 @@ public class WebDriverFactory {
     public static WebDriverWraper initDriver(String driverName)
     {
         WebDriverWraper driverWraper = null;
-        if (driverName.equalsIgnoreCase(FIREFOX))
+        if (driverName.equalsIgnoreCase(FIREFOX)) {
             driverWraper = new WebDriverWraper(new FirefoxDriver());
-        else if (driverName.equalsIgnoreCase(HTMLUNIT))
+            Log4Test.info("Use WebDriver - Firefox driver");
+        }
+        else if (driverName.equalsIgnoreCase(HTMLUNIT)){
             driverWraper = new WebDriverWraper(new HtmlUnitDriver());
+            Log4Test.info("Use WebDriver - HtmlUnit driver");
+        }
         else
             Assert.fail("Invalid driver configuration");
 

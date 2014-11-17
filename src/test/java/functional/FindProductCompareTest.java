@@ -30,13 +30,7 @@ public class FindProductCompareTest extends functional {
 
         try {Thread.sleep(10000);} catch (InterruptedException e) {Log4Test.error("Thread.sleep() Exception");}
 
-        if (goodsPage.countingGoodsOnPage(textToFind)>1) {
-            Assert.assertTrue(true);
-            Log4Test.info("Hotline Compare test result - PASS!");
-            Log4Test.info("******************************************************");
-        } else {
-            Log4Test.error("Hotline Compare test result - FAIL!");
-            Assert.fail("Less then 2 goods on Find result page!");
-        }
+        Assert.assertTrue(goodsPage.countingGoodsOnPage(textToFind)>1, "No products found");
+
     }
 }

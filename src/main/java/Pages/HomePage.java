@@ -22,7 +22,6 @@ public class HomePage {
 
     private static final By btCatSelector = By.xpath("//a[@href='/bt/']");
     private static final By fridgeCatSelector = By.xpath("//a[@href='/bt/holodilniki/']");
-    private static final By fridgePageSelector = By.xpath("//a[@href='/bt-holodilniki/']");
     //End of constants for HomePage objects
 
 
@@ -78,7 +77,7 @@ public class HomePage {
 
     public void findElement(String elementName)
     {
-        Log4Test.info("Enter text for search to the search field");
+        Log4Test.info("Enter text '"+elementName+ "' for search to the search field");
         driver.findElement(searchFieldSelector).clear();
         driver.findElement(searchFieldSelector).sendKeys(elementName + Keys.RETURN);
         Log4Test.info("Press Search button");

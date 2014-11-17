@@ -5,7 +5,7 @@ import utils.Log4Test;
 /**
  * Created by HomeUser on 01.11.2014.
  */
-public class HW5User
+public class User
 {
 
     //Constants for User objects
@@ -13,7 +13,7 @@ public class HW5User
     public String nickname;
     public String passwd;
 
-    public HW5User()
+    public User()
     {
         Log4Test.info("User data:");
         this.email = "asd"+ Long.toString(System.currentTimeMillis()) +"@i.ua";
