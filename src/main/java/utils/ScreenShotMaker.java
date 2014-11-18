@@ -50,7 +50,7 @@ public class ScreenShotMaker {
             File scrFile = ((TakesScreenshot)augmenter.augment(driver)).getScreenshotAs(OutputType.FILE);
             FileUtils.copyFile(scrFile, new File(screenShotDirectory + scrName + formater.format(calendar.getTime()) + scrFormat));
 
-            Log4Test.info("Error screenshot link: " + PropertyLoader.loadProperty("project.dir")+ screenShotDirectory + scrName + formater.format(calendar.getTime()) + scrFormat);
+            Log4Test.info("Error screenshot link: " + PropertyLoader.loadProperty("project.dir")+"\\"+ screenShotDirectory + scrName + formater.format(calendar.getTime()) + scrFormat);
         }
         catch (Exception e)
         {

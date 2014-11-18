@@ -51,12 +51,10 @@ public class functional {
 
     @AfterMethod(alwaysRun=true)
     public void catchExceptions(ITestResult result){
-        Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
         String methodName = result.getName();
         if(!result.isSuccess()){
             ScreenShotMaker screenShotMaker = new ScreenShotMaker(driver);
-            screenShotMaker.takeScreenShot("failure_screenshots_" + methodName +"_"+formater.format(calendar.getTime()));
+            screenShotMaker.takeScreenShot("failure_screenshot_" + methodName);
         }
     }
 
