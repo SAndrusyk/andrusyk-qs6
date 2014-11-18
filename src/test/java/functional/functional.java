@@ -4,19 +4,13 @@ import Pages.HomePage;
 import Selenium.WebDriverFactory;
 import Selenium.WebDriverWraper;
 import actors.User;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.*;
 import utils.Log4Test;
 import utils.PropertyLoader;
 import utils.ScreenShotMaker;
 import org.testng.ITestResult;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+
 
 /**
  * Created by bionic on 11/5/14.
@@ -42,11 +36,12 @@ public class functional {
     public void runBrowserAndCloseBunners()
     {
         Log4Test.info("******************************************************");
-        Log4Test.info("Open Homepage URL");
+        Log4Test.info("Prepare Homepage");
         driver.get(PropertyLoader.loadProperty("site.url"));
         HomePage homePage = new HomePage(driver);
         homePage.closeADPopUp();
         homePage.selectCity();
+        Log4Test.info("***** Start new test *****");
     }
 
     @AfterMethod(alwaysRun=true)

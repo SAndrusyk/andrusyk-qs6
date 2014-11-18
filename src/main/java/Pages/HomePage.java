@@ -59,7 +59,6 @@ public class HomePage {
     {
         Log4Test.info("Click on register link");
         driver.findElement(loginLinkSelector).click();
-        Log4Test.info("Register link was found and clicked");
     }
 
     public Boolean emailErrorDetect()
