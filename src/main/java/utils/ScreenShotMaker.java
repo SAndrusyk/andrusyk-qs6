@@ -48,9 +48,10 @@ public class ScreenShotMaker {
             Calendar calendar = Calendar.getInstance();
             SimpleDateFormat formater = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss");
             File scrFile = ((TakesScreenshot)augmenter.augment(driver)).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(scrFile, new File(screenShotDirectory + scrName + formater.format(calendar.getTime()) + scrFormat));
+            String fileName = screenShotDirectory + scrName +"_"+ formater.format(calendar.getTime()) + scrFormat;
+            FileUtils.copyFile(scrFile, new File(fileName));
 
-            Log4Test.info("Error screenshot link: " + PropertyLoader.loadProperty("project.dir")+"\\"+ screenShotDirectory + scrName + formater.format(calendar.getTime()) + scrFormat);
+            Log4Test.info("Error screenshot link: " + PropertyLoader.loadProperty("project.dir")+"\\"+ fileName);
         }
         catch (Exception e)
         {
