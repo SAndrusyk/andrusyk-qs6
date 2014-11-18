@@ -17,7 +17,7 @@ import org.testng.ITestResult;
  */
 public class functional {
 
-    public static User user = new User();    // generating user data
+    public /*static*/ User user = new User();    // generating user data
 
     public static WebDriverWraper driver;
 
