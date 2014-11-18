@@ -4,16 +4,26 @@ import Pages.HomePage;
 import Selenium.WebDriverFactory;
 import Selenium.WebDriverWraper;
 import actors.User;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.*;
 import utils.Log4Test;
 import utils.PropertyLoader;
+import utils.ScreenShotMaker;
+import org.testng.ITestResult;
+
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * Created by bionic on 11/5/14.
  */
 public class functional {
 
-    public static User user = new User();    // generating user data
+    public /*static*/ User user = new User();    // generating user data
 
     public static WebDriverWraper driver;
 
@@ -21,6 +31,9 @@ public class functional {
     public void envPrep()
     {
         Log4Test.info("Starting TestSuite");
+        ScreenShotMaker.clearScreenShotSubDirectory();
+
+
         Log4Test.info("Starting WebDriver");
         driver = WebDriverFactory.initDriver(PropertyLoader.loadProperty("browser.name"));
     }
@@ -34,6 +47,17 @@ public class functional {
         HomePage homePage = new HomePage(driver);
         homePage.closeADPopUp();
         homePage.selectCity();
+    }
+
+    @AfterMethod(alwaysRun=true)
+    public void catchExceptions(ITestResult result){
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
+        String methodName = result.getName();
+        if(!result.isSuccess()){
+            ScreenShotMaker screenShotMaker = new ScreenShotMaker(driver);
+            screenShotMaker.takeScreenShot("failure_screenshots_" + methodName +"_"+formater.format(calendar.getTime()));
+        }
     }
 
     @AfterMethod
