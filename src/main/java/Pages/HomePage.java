@@ -3,7 +3,6 @@ package Pages;
 import Selenium.WebDriverWraper;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.testng.Assert;
 import utils.Log4Test;
 import java.util.concurrent.TimeUnit;
 

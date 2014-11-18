@@ -2,7 +2,6 @@ package Pages;
 
 import Selenium.WebDriverWraper;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import utils.Log4Test;
 
 /**

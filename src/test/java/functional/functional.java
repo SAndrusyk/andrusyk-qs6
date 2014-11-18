@@ -1,12 +1,9 @@
 package functional;
 
-import Pages.GoodsPage;
 import Pages.HomePage;
 import Selenium.WebDriverFactory;
 import Selenium.WebDriverWraper;
 import actors.User;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
 import org.testng.annotations.*;
 import utils.Log4Test;
 import utils.PropertyLoader;

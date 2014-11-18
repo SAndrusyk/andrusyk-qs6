@@ -2,8 +2,6 @@ package functional;
 
 import Pages.FridgesPage;
 import Pages.HomePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.Log4Test;

@@ -1,13 +1,8 @@
 package Pages;
 
 import Selenium.WebDriverWraper;
-import com.gargoylesoftware.htmlunit.ElementNotFoundException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.ExpectedExceptions;
 import utils.Log4Test;
 
 /**
