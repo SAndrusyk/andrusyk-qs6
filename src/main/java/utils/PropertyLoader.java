@@ -1,7 +1,6 @@
 package utils;
 
 import org.testng.Assert;
-
 import java.io.IOException;
 import java.util.Properties;
 
