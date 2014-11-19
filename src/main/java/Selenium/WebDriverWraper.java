@@ -4,6 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Log4Test;
@@ -106,7 +107,11 @@ public class WebDriverWraper implements WebDriver, TakesScreenshot {
         try {
             if (driver instanceof FirefoxDriver) {
                 return ((FirefoxDriver) driver).getScreenshotAs(outType);
-            } else {
+            }
+            else if (driver instanceof RemoteWebDriver) {
+                return ((RemoteWebDriver) driver).getScreenshotAs(outType);
+            }
+            else {
                 return null;
             }
         }
