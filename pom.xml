@@ -21,7 +21,14 @@
                 <browser.name>htmlunit</browser.name>
             </properties>
         </profile>
+        <profile>
+            <id>chrome_local</id>
+            <properties>
+                <browser.name>chrome</browser.name>
+            </properties>
+        </profile>
     </profiles>
+
     <properties>
         <selenium.version>2.44.0</selenium.version>
     </properties>

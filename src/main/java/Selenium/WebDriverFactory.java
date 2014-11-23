@@ -1,10 +1,12 @@
 package Selenium;
 
 
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.testng.Assert;
 import utils.Log4Test;
+import utils.PropertyLoader;
 
 
 /**
@@ -13,6 +15,7 @@ import utils.Log4Test;
 public class WebDriverFactory {
     public static final String FIREFOX = "firefox";
     public static final String HTMLUNIT = "htmlunit";
+    public static final String CHROME = "chrome";
 
 
     public static WebDriverWraper initDriver(String driverName)
@@ -25,8 +28,11 @@ public class WebDriverFactory {
         else if (driverName.equalsIgnoreCase(HTMLUNIT)){
             Log4Test.info("Use HtmlUnit driver");
             driverWraper = new WebDriverWraper(new HtmlUnitDriver());
-        }
-        else
+        } else if (driverName.equalsIgnoreCase(CHROME)){
+            Log4Test.info("Use Chrome driver");
+            System.setProperty("webdriver.chrome.driver", PropertyLoader.loadProperty("selenium.chrome.driver.path"));
+            driverWraper = new WebDriverWraper(new ChromeDriver());
+        } else
             Assert.fail("Invalid driver configuration");
 
         driverWraper.manage().deleteAllCookies();
