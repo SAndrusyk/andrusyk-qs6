@@ -15,7 +15,6 @@ public class HomePage {
     private static final By popUpCloseButtonSelector = By.className("close");
     private static final By selectCityCloseSelector = By.className("blue-button");
     private static final By loginLinkSelector = By.xpath("//a[@href='/user/register/']");
-    private static final By emailErrorSelector =By.xpath("//form/div[1]/span[contains(text(),'e-mail')]");
 
     private static final By searchFieldSelector = By.id("searchbox");
 
@@ -61,17 +60,7 @@ public class HomePage {
         driver.findElement(loginLinkSelector).click();
     }
 
-    public Boolean emailErrorDetect()
-    {
-        Log4Test.info("Searching for e-mail error");
-        try {driver.findElement(emailErrorSelector).isDisplayed();}
-        catch (Exception e) {
-            Log4Test.error("Expected error wasn't found");
-            return false;
-        }
-    Log4Test.info("Expected error was found");
-    return true;
-    }
+
 
     public void findElement(String elementName)
     {

@@ -24,7 +24,7 @@ public class SortLgFridgeByPrice extends functional {
         FridgesPage fridgesPage = new FridgesPage(driver);
         fridgesPage.fridgeLGbyPriceSelect();
 
-        Assert.assertTrue(fridgesPage.priceListSortByIncrease(), Log4Test.fail("Second price less then first."));
+        Assert.assertTrue(fridgesPage.priceListSortByIncrease(), "Second price less then first.");
 
     }
 

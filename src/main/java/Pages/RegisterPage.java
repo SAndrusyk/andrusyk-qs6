@@ -3,6 +3,7 @@ package Pages;
 import Selenium.WebDriverWraper;
 import actors.User;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utils.Log4Test;
@@ -19,6 +20,7 @@ public class RegisterPage {
     public static final By password2FieldSelector = By.id("passw2");
     public static final By regButtonSelector = By.className("blue-button");
 
+    private static final By emailErrorSelector =By.xpath("//form/div[1]/span[contains(text(),'e-mail')]");
     //End of constants for RegisterPage objects
 
     private static WebDriverWraper driver;
@@ -46,6 +48,16 @@ public class RegisterPage {
         driver.findElement(regButtonSelector).click();
     }
 
+    public Boolean emailErrorDetect()
+    {
+        Log4Test.info("Searching for e-mail error");
 
-
+        try {driver.findElement(emailErrorSelector).isDisplayed();}
+        catch (TimeoutException e) {
+            Log4Test.error("Expected error wasn't found");
+            return false;
+        }
+        Log4Test.info("Expected error was found");
+        return true;
+    }
 }

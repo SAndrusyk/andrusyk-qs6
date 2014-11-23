@@ -23,10 +23,10 @@ public class SearchProductPositiveTest extends functional {
 
         GoodsPage goodsPage = new GoodsPage(driver);
         try {Thread.sleep(10000);} catch (Exception e) {
-            Assert.fail("Thread.sleep() exception");}
+            Assert.fail(Log4Test.fail("Thread.sleep() exception"));}
 
         Log4Test.info("Check result");
-        Assert.assertTrue(goodsPage.countingGoodsOnPage(textToFind) > 0,Log4Test.fail("Expected product wasn't found on result page."));
+        Assert.assertTrue(goodsPage.countingGoodsOnPage(textToFind) > 0,"Expected product wasn't found on result page.");
     }
 
 

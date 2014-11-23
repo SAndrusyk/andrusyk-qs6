@@ -23,13 +23,13 @@ public class WelcomePage {
     public Boolean isOnPage()
     {
         Log4Test.info("Detecting Welcome page.");
-        try {driver.findElement(profileNameFieldSelector).isDisplayed();}
-        catch (Exception e) {
+        if (driver.findElements(profileNameFieldSelector).size()>0){
+            Log4Test.info("Expected page was found");
+            return true;
+        } else {
             Log4Test.error("Expected page wasn't found");
             return false;
         }
-        Log4Test.info("Expected page was found");
-        return true;
     }
 
 
