@@ -22,7 +22,7 @@ public class FindProductCompareTest extends functional {
         homePage.findElement(textToFind);
 
         GoodsPage goodsPage = new GoodsPage(driver);
-        try {Thread.sleep(10000);} catch (InterruptedException e) {Assert.fail("Thread.sleep() Exception");}
+        try {Thread.sleep(10000);} catch (InterruptedException e) {Assert.fail(Log4Test.fail("Thread.sleep() Exception"));}
 
         Log4Test.info("Check result");
         Assert.assertTrue(goodsPage.countingGoodsOnPage(textToFind) > 1, "Less then 2 products found");
