@@ -35,8 +35,7 @@ public class functional {
     @BeforeMethod
     public void runBrowserAndCloseBunners()
     {
-        Log4Test.info("******************************************************");
-        Log4Test.info("Prepare Homepage");
+        Log4Test.beforeTest("Prepare Homepage");
         driver.get(PropertyLoader.loadProperty("site.url"));
         HomePage homePage = new HomePage(driver);
         homePage.closeADPopUp();
@@ -56,9 +55,7 @@ public class functional {
     @AfterMethod
     public void endTest()
     {
-
-        Log4Test.info("End of test");
-        Log4Test.info("******************************************************");
+        Log4Test.afterTest("End of test");
     }
 
 
