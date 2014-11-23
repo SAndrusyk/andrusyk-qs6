@@ -28,6 +28,6 @@ public class RegisterPositive extends functional
         WelcomePage welcomePage = new WelcomePage(driver);
 
         Log4Test.info("Check result");
-        Assert.assertTrue(welcomePage.isOnPage(), "Expected page not detected.");
+        Assert.assertTrue(welcomePage.isOnPage(), Log4Test.fail("Expected page not detected."));
     }
 }

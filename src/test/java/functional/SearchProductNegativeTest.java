@@ -26,6 +26,6 @@ public class SearchProductNegativeTest extends functional {
             Assert.fail("Thread.sleep() exception");}
 
         Log4Test.info("Check result");
-        Assert.assertTrue(goodsPage.countingGoodsOnPage(textToFind) < 1,"Expected product was found on result page.");
+        Assert.assertTrue(goodsPage.countingGoodsOnPage(textToFind) < 1,Log4Test.fail("Expected product was found on result page."));
     }
 }

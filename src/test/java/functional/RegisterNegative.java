@@ -22,9 +22,9 @@ public class RegisterNegative extends functional
 
         RegisterPage registerPage = new RegisterPage(driver);
         registerPage.fillUserData(user);
-        registerPage.register();   // Special for screenshot demonstration.
+//        registerPage.register();   // Special for screenshot demonstration.
 
         Log4Test.info("Check result");
-        Assert.assertTrue(homePage.emailErrorDetect(), "Expected error wasn't found.");
+        Assert.assertTrue(homePage.emailErrorDetect(), Log4Test.fail("Expected error wasn't found."));
     }
 }

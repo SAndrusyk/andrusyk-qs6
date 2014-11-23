@@ -25,7 +25,7 @@ public class FindProductCompareTest extends functional {
         try {Thread.sleep(10000);} catch (InterruptedException e) {Assert.fail("Thread.sleep() Exception");}
 
         Log4Test.info("Check result");
-        Assert.assertTrue(goodsPage.countingGoodsOnPage(textToFind) > 1, "Less then 2 products found");
+        Assert.assertTrue(goodsPage.countingGoodsOnPage(textToFind) > 1, Log4Test.fail("Less then 2 products found"));
 
     }
 }
