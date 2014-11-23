@@ -18,7 +18,6 @@ public class Log4Test {
     // ****************** Default message content ********************
     private static final String INFO_LOG = "INFO: \"%s\"";
     private static final String ERROR_LOG = "ERROR: \"%s\" !";
-    private static final String TEST_FAIL_LOG = "TEST FAIL: \"%s\" !";
 
     public static String error (String message)
     {
@@ -36,24 +35,25 @@ public class Log4Test {
 
     public static String beforeTest (String message)
     {
-        Log4Test.info("******************************************************");
-        LOGGER.info(String.format(INFO_LOG, message));
-        Reporter.log(String.format(INFO_LOG, message));
-        return String.format(INFO_LOG, message);
+        LOGGER.info("******************************************************");
+        LOGGER.info("*** Prepare for new test : '"+ message + "'");
+        Reporter.log("*** Prepare for new test : '"+ message + "'");
+        return "Prepare for new test : '"+ message + "'";
     }
 
-    public static String afterTest (String message)
+    public static String testpass (String message)
     {
-        LOGGER.info(String.format(INFO_LOG, message));
-        Reporter.log(String.format(INFO_LOG, message));
-        Log4Test.info("******************************************************");
-        return String.format(INFO_LOG, message);
+        LOGGER.info("*** Test : '"+ message + "' - PASS");
+        LOGGER.info("******************************************************\n");
+        Reporter.log("*** Test : '"+ message + "' - PASS");
+        return "Test : '"+ message + "' - PASS";
     }
 
-    public static String fail (String message)
+    public static String testfail (String message)
     {
-        LOGGER.info(String.format(TEST_FAIL_LOG, message));
-        Reporter.log(String.format(TEST_FAIL_LOG, message));
-        return String.format(TEST_FAIL_LOG, message);
+        LOGGER.error("*** Test : '"+ message + "' - FAIL");
+        LOGGER.info("******************************************************\n");
+        Reporter.log("*** Test : '"+ message + "' - FAIL");
+        return "Test : '"+ message + "' - FAIL";
     }
 }

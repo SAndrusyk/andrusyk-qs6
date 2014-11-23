@@ -35,7 +35,8 @@ public class functional {
     @BeforeMethod
     public void runBrowserAndCloseBunners()
     {
-        Log4Test.beforeTest("Prepare Homepage");
+        Log4Test.beforeTest(getClass().getName().toString());
+        Log4Test.info("Prepare Homepage");
         driver.get(PropertyLoader.loadProperty("site.url"));
         HomePage homePage = new HomePage(driver);
         homePage.closeADPopUp();
@@ -46,18 +47,14 @@ public class functional {
     @AfterMethod(alwaysRun=true)
     public void catchExceptions(ITestResult result){
         String methodName = result.getName();
-        if(!result.isSuccess()){
+        if(result.isSuccess()) {
+            Log4Test.testpass(getClass().getName().toString());
+        } else {
             ScreenShotMaker screenShotMaker = new ScreenShotMaker(driver);
             screenShotMaker.takeScreenShot("failure_screenshot_" + methodName);
+            Log4Test.testfail(getClass().getName().toString());
         }
     }
-
-    @AfterMethod
-    public void endTest()
-    {
-        Log4Test.afterTest("End of test");
-    }
-
 
     @AfterSuite
     public void envClean()
